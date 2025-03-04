@@ -37,6 +37,20 @@ const calculateMonthlyWage = () => {
     }
     return totalWage;
   };
+  //uc5
+const calculateWagesTillCondition = () => {
+    let totalWage = 0,
+      totalHours = 0,
+      daysWorked = 0;
+    while (totalHours < 160 && daysWorked < 20) {
+      let dailyWage = getDailyWage();
+      totalWage += dailyWage;
+      totalHours += dailyWage / 20;
+      daysWorked++;
+    }
+    return { totalWage, totalHours, daysWorked };
+  };
+  
   //uc1
   console.log(isPresent);
   // uc2
@@ -44,4 +58,6 @@ const calculateMonthlyWage = () => {
   //uc3
   console.log(getWorkHours());
   //uc4
-  console.log(calculateMonthlyWage())
+  console.log(calculateMonthlyWage());
+  //uc5
+  console.log(calculateWagesTillCondition());
