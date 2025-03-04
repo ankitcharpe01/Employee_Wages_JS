@@ -91,21 +91,40 @@ const storeWageInMap = () => {
   dailyWageMap.forEach((wage) => (totalWage += wage));
   return totalWage;
 };
-//uc1
-console.log(isPresent);
-// uc2
-console.log(getDailyWage());
-//uc3
-console.log(getWorkHours());
-//uc4
-console.log(calculateMonthlyWage());
-//uc5
-console.log(calculateWagesTillCondition());
-//uc6
-storeDailyWages();
-console.log(dailyWages);
-//uc7
-console.log(dailyWageOperations());
-//uc8
-storeWageInMap();
-console.log(dailyWageMap);
+//uc9
+const wageAndHoursMap = () => {
+    const totalWage = Array.from(dailyWageMap.values()).reduce(
+      (total, wage) => total + wage,
+      0
+    );
+    let fullDays = 0,
+      partDays = 0,
+      noWorkDays = 0;
+    dailyWageMap.forEach((wage) => {
+      if (wage === 160) fullDays++;
+      else if (wage === 80) partDays++;
+      else noWorkDays++;
+    });
+    return { totalWage, fullDays, partDays, noWorkDays };
+  };
+  
+  //uc1
+  console.log(isPresent);
+  // uc2
+  console.log(getDailyWage());
+  //uc3
+  console.log(getWorkHours());
+  //uc4
+  console.log(calculateMonthlyWage());
+  //uc5
+  console.log(calculateWagesTillCondition());
+  //uc6
+  storeDailyWages();
+  console.log(dailyWages);
+  //uc7
+  console.log(dailyWageOperations());
+  //uc8
+  storeWageInMap();
+  console.log(dailyWageMap);
+  //uc9
+  console.log(wageAndHoursMap());
