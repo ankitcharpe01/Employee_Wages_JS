@@ -118,7 +118,24 @@ const storeDailyWorkData = () => {
     });
   }
 };
-
+//uc11
+const workDayOperations = () => {
+    let totalWage = 0,
+      totalHours = 0;
+    dailyWorkData.forEach((work) => {
+      totalWage += work.wageEarned;
+      totalHours += work.hoursWorked;
+    });
+    const fullWorkDays = dailyWorkData.filter((work) => work.hoursWorked === 8);
+    const partWorkDays = dailyWorkData
+      .map((work) => (work.hoursWorked === 4 ? `Day ${work.day}` : ""))
+      .filter((day) => day !== "");
+    const noWorkDays = dailyWorkData
+      .map((work) => (work.hoursWorked === 0 ? `Day ${work.day}` : ""))
+      .filter((day) => day !== "");
+  
+    return { totalWage, totalHours, fullWorkDays, partWorkDays, noWorkDays };
+  };
 
   //uc1
   console.log(isPresent);
@@ -143,3 +160,5 @@ const storeDailyWorkData = () => {
   //uc10
 storeDailyWorkData();
 console.log(dailyWorkData);
+//uc11
+console.log(workDayOperations());
