@@ -81,18 +81,31 @@ const dailyWageOperations = () => {
       daysWorked,
     };
   };
-  //uc1
-  console.log(isPresent);
-  // uc2
-  console.log(getDailyWage());
-  //uc3
-  console.log(getWorkHours());
-  //uc4
-  console.log(calculateMonthlyWage());
-  //uc5
-  console.log(calculateWagesTillCondition());
-  //uc6
-  storeDailyWages();
-  console.log(dailyWages);
-  //uc7
-  console.log(dailyWageOperations());
+  //uc8
+let dailyWageMap = new Map();
+const storeWageInMap = () => {
+  for (let i = 0; i < 20; i++) {
+    dailyWageMap.set(`Day ${i + 1}`, getDailyWage());
+  }
+  let totalWage = 0;
+  dailyWageMap.forEach((wage) => (totalWage += wage));
+  return totalWage;
+};
+//uc1
+console.log(isPresent);
+// uc2
+console.log(getDailyWage());
+//uc3
+console.log(getWorkHours());
+//uc4
+console.log(calculateMonthlyWage());
+//uc5
+console.log(calculateWagesTillCondition());
+//uc6
+storeDailyWages();
+console.log(dailyWages);
+//uc7
+console.log(dailyWageOperations());
+//uc8
+storeWageInMap();
+console.log(dailyWageMap);
